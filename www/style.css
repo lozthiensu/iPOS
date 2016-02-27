@@ -1,0 +1,525 @@
+span.menu4icontitle{
+	font-size: 11px;
+	margin-top:-5px;
+	margin-bottom:2px;
+}
+ body { 
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:11pt; 
+  color: #333; 
+  margin: 0; 
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+ .size-24 { font-size: 24px; }
+ .size-35 { font-size: 35px; }
+ .size-40 { font-size: 30px; } 
+
+.scrollernative {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 48px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+.scroller_thanhtoan {
+    position: relative;
+	height: calc(100vh - 150px);
+    overflow-x: hidden;
+/* 	-webkit-box-shadow: inset 0px 0px 19px -3px rgba(5,168,255,1);
+	-moz-box-shadow: inset 0px 0px 19px -3px rgba(5,168,255,1);
+	box-shadow: inset 0px 0px 19px -3px rgba(5,168,255,1); */
+}
+.scroller_ban {
+    position: relative;
+	height:calc(100vh - 40px);
+    overflow-x: hidden;
+/* 	-webkit-box-shadow: inset 0px 0px 19px -3px rgba(5,168,255,1);
+	-moz-box-shadow: inset 0px 0px 19px -3px rgba(5,168,255,1);
+	box-shadow: inset 0px 0px 19px -3px rgba(5,168,255,1); */
+}
+.text_shadow{
+	padding-top:15px;
+	text-align:center;
+	text-shadow: 0px 3px 3px rgba(255, 0, 0, 1);
+	font-weight: bold;
+	font-size:25px;
+}
+
+
+/* Định dạng footer menu */
+.menu_footer{
+	color:#FFF;   
+	text-align:center;
+	position:fixed;  
+    width:100%;
+	background-color: #FFF !important;
+	-webkit-backface-visibility: hidden;
+    bottom: 0; 
+    z-index: 100;
+	border-top:#9E9E9E solid 0.5px;
+} 
+/* Định dạng 4 nút trong footer menu */
+.status_buttons a {
+	text-decoration:none;
+	color:#9E9E9E;
+	display:inline-block; 
+	width:23%;
+}
+.status_buttons a:hover {
+	text-decoration:none;
+	color:#9E9E9E;
+}
+.status_buttons span {
+	display:block;
+} 
+.status_buttons a.active span   {
+	text-decoration: none;
+	color:#018FE5;
+}
+.status_buttons-night a { 
+	color:#B2B2B2;
+}.status_buttons-night a:hover { 
+	color:#B2B2B2;
+}.status_buttons-night a.active span   { 
+	color: #FFF;
+}
+
+/* Xóa bỏ gạch dưới thẻ a href */
+a.nav :hover{
+	text-decoration:none; 
+}
+
+
+/* Định dạng header menu*/
+.menu_header{
+	color:#FFF;
+	background-color: #018FE5 !important;   
+	text-align:center;
+	position:fixed;  
+	width: 100%; 
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:14pt;
+	-webkit-backface-visibility: hidden;
+	top: 0;   
+	left: 0; 
+}  
+
+/* Định dạng list menu */
+.link_menu {
+	width:100%;
+	color:	#727272; 
+	text-align:left;  
+	padding:10px;
+	margin-top:15px;
+	border-left: #018FE5 solid 4px !important; 
+} 
+
+/* Định dạng medal header menu, từng item trong đó */
+.modal-header {
+	text-align:center;
+	background-color: #018FE5 !important;  
+	color:	#FFF;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:14pt;
+}.modal_content_background {
+	background: url("img/1.jpg");
+}
+   
+/* Định dạng box medal, từng item trong đó */
+.modal-header-theloai {
+	padding: 7px 7px 0px 20px;  
+	height:40px;
+	text-align:center;
+	margin-top:20%;
+	background-color: #018FE5 !important;  
+	color:	#FFF;
+} 
+.modal-content-theloai {
+  position: relative;
+  background-color: #FFF !important;
+  margin-bottom:0;
+  height:100%;
+  outline: 0;
+} 
+.itemSelect {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:14pt; 
+	text-align:center; 
+	border-top: #018FE5 solid 1px !important; 
+	padding:15px; 
+} 
+
+
+/* Không hiện thanh scroll*/
+::-webkit-scrollbar { 
+    display: none; 
+}
+.text-center {
+  text-align: center; 
+}
+.fontxem {
+  font-size: 11pt; 
+  font-weight: normal; 
+  line-height: 1.4;
+}
+.font1 {
+  padding-right:20px;
+  padding-top:10px;
+  padding-bottom:15px;
+  padding-left:20px;
+  font-size: 11pt; 
+  font-weight: normal; 
+  line-height: 1.4;
+}
+.button_xoa{
+	margin-left:10px;
+	background:#F44336;
+	border:none;
+	color: #FFF;
+	font-size:14pt;
+	border-radius:5px;
+}
+.button_set_search{
+	padding:5px; 
+	background: #FF9800;
+	border:none;
+	color: #FFF;
+	font-size: 10pt;
+	border-radius: 5px;
+}
+.button_datthemmon{
+	float:left;
+	padding:10px;
+	margin:10px;
+	background: #2196F3;
+	border:none;
+	color: #FFF;
+	font-size:14pt;
+	border-radius:5px;
+}
+.button_thanhtoan{
+	float:right;
+	padding:10px;
+	margin:10px;
+	background:#8BC34A;
+	border:none;
+	color: #FFF;
+	font-size:14pt;
+	border-radius:5px;
+}
+.clear_float{
+	clear:both;
+}
+.tong_tien{
+	border-top: 1px solid #000;
+	padding:10px;  
+	font-size:14pt;
+	width:100%;
+}
+
+/* Hiển thị list bàn khách */
+.list_ban_khach{  
+	background-color: #FFF !important;
+	padding-top:30px; 
+	padding-bottom:100px;
+}
+
+.ban_trong{ 
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+	width: 100px;
+	height: 80px;
+}
+
+.amount_desk{ 
+	text-align:center; 
+    margin-top: -25px;
+    left: 0;
+	font-size:14px;
+	color:#FF5722;
+}
+.name_product{ 
+	text-align:center;
+	position: relative;
+    top: 10px;
+    right: 0px;
+	font-size:14px;
+	color:#000;
+}
+.name_desk{ 
+	text-align:center;
+	position: relative; 
+    bottom: -40px; 
+	font-size:25px;
+	color: #FFFFFF;
+	border-radius:50%;
+	margin-left:auto;
+	margin-right:auto; 
+	width:30px;
+	height:30px;
+	background: #795548;
+}
+.image_product{ 
+	margin-left: 10px;
+	margin-bottom: -50px;
+	width: 50px;
+	height: 50px;
+}
+.button_them{
+	margin-top:10px;
+	float:right;
+	margin-right:10px;
+	background:#8BC34A;
+	border:none;
+	color: #FFF;
+	font-size:12pt;
+	border-radius:5px;
+	width: 50px;
+	height: 50px;
+}
+.xoa_sp{
+	background:#F44336;
+}
+.button_them {
+    zoom: 1;
+}
+
+.button_them:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+.price_product{   
+    margin-top: 60px;
+    margin-left: 10px;
+	font-size:14px;
+	color:#000;
+}
+.list_baiviet_bogoc {
+    zoom: 1;
+}
+
+.list_baiviet_bogoc:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+.menu_search{ 
+	padding: 10px; 
+}
+.status_ban{
+	color:#fff;
+	font-size:12pt;  	
+}
+
+.tieu_de{
+	margin-top: -5px; 
+}
+.icon_list_baiviet {   
+    margin-left: -45px;   
+    max-width: 40px;
+	margin-top: 20px;
+    max-height: 40x;  
+    border-radius: 50%;	
+}   
+ 
+ 
+i {
+    font-style: italic;
+} 
+ 
+  
+ 
+/* Show 4 menu*/
+.slide {
+    position: absolute;
+    top: 20px;
+    left: 0;
+	height: 100%; 
+}
+.wrapper {
+    margin: 0 auto;
+    width: 100%;
+    padding: 1em 0 .8em;
+}
+
+  
+/* Định dạng lại màu nền xem bài viết*/
+.tieude_baiviet {  
+	margin-top:  -70px; 
+	margin-left: 45px; 
+	display: block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	width: auto;   
+}.icon_tieude_baiviet {  
+	border: #F0F4F7 solid 8px !important; 
+    margin-left: -20px;
+    max-width: 65px;
+    max-height: 65x;
+	margin-top: -50px; 
+    border-radius: 50%;	
+}.xem_baiviet_bogoc { 
+	background-color: #FFF !important; 
+    border: 0 !important;
+	margin-top: 100px;
+	margin-left:20px;
+	margin-right:15px; 
+	border:white solid 8px;
+    border-radius: 15px;	
+    display: block; 
+	padding-bottom: 10px;
+}.xem_noidung { 
+	margin: 0 20px 20px 20px;
+} 
+ 
+/* Định dạng lại màu nền xem bài viết modal*/
+.tieude_baiviet_modal {  
+	margin-top:  -60px; 
+	margin-left: 75px; 
+	display: block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	width: auto;   
+}.icon_tieude_baiviet_modal {  
+	border: #F0F4F7 solid 8px !important; 
+    margin-left: 20px;
+    max-width: 55px;
+    max-height: 55x;
+	margin-top: -50px; 
+    border-radius: 50%;	
+}  
+
+/* Định dạng lại box login*/
+.tieude_login {  
+	margin-top:  -60px; 
+	margin-left: 45px; 
+	display: block; 
+	width: auto;   
+}.icon_tieude_login {  
+	border: #F0F4F7 solid 8px !important; 
+    margin-left: -20px;
+    max-width: 65px;
+    max-height: 65x;
+	margin-top: -45px; 
+    border-radius: 50%;	
+}.xem_baiviet_login { 
+	background-color: #FFF !important; 
+    border: 0 !important;
+	margin-top: 70px;   
+    border-radius: 8px;	
+    display: block; 
+	padding-bottom: 1px;
+}.xem_noidung { 
+	margin: 0 15px 15px 15x;
+}
+
+/* Định dạng lại màu nền login form*/
+.input_login {   
+	height:40px;
+	width: 100%;
+	border:none;
+	margin-top: 10px; 
+    border-left: #448AFF solid 4px !important;   
+	text-indent: 10px;
+    border-radius: 8px;	
+}
+.button_login:focus, .input_login:focus{
+    outline: 0;
+}.button_login {
+	background-color: #33CD5F;
+	height:40px;
+	width: 100%;
+	border:none;
+	margin-top: 10px;  
+    border-radius: 8px;	 
+}
+.button_edit {
+	background-color: #FF5722;
+	height:30px;
+	width: 30px;
+	border:none;
+	margin-top: 10px; 
+    border-radius: 8px;	  
+}
+.button_ok {
+	background-color: #388E3C;
+	height:30px;
+	width: 30px;
+	border:none; 
+	margin-top: 10px;  
+    border-radius: 10px;	 
+}
+
+.fixhome_ban { 
+	margin-top:40px; 
+}
+img {
+    width: 100%;
+}
+
+.col-xs-6 {
+    padding: 1.5%;
+    margin: 0; 
+}
+
+.col-sm-3 {
+    padding: 1.5%;
+    margin: 0;
+}
+
+.col-md-2 {
+    padding: 1.5%;
+    margin: 0;  
+}
+.settingdiv{
+	width: 100%;
+	padding:15px;
+	border-bottom: 2px solid #FFF;
+}
+
+.scroller_sanpham {  
+    position: relative;
+	height: calc(100vh - 95px);
+    overflow-x: hidden;
+/* 	-webkit-box-shadow: inset 0px 0px 19px -3px rgba(5,168,255,1);
+	-moz-box-shadow: inset 0px 0px 19px -3px rgba(5,168,255,1);
+	box-shadow: inset 0px 0px 19px -3px rgba(5,168,255,1); */
+}
+.scroller_setting {  
+    position: relative;
+	height: calc(100vh - 45px);
+    overflow-x: hidden;
+/* 	-webkit-box-shadow: inset 0px 0px 19px -3px rgba(5,168,255,1);
+	-moz-box-shadow: inset 0px 0px 19px -3px rgba(5,168,255,1);
+	box-shadow: inset 0px 0px 19px -3px rgba(5,168,255,1); */
+}
+.list_ban_khach_repeat {
+	min-width:128px;
+	background-color: #B3E5FC !important;
+	height: 128px;
+	width: 100%;
+	display: inline-table;
+	border: 1px solid #000; 
+	border-radius:15px;
+/* 	-webkit-box-shadow: 0 10px 6px -6px #777;
+	-moz-box-shadow: 0 10px 6px -6px #777;
+	box-shadow: 0 10px 6px -6px #777;  */
+	margin-top:10px;
+}

@@ -1,0 +1,118 @@
+<div ng-controller="page_Home_Ctrl"> 
+	<div class="fixhome_ban">
+		<audio ng-if="soundPlay" ng-src="notification.mp3" autoplay></audio>
+		<perfect-scrollbar class="scroller_ban" wheel-propagation="true" wheel-speed="15" min-scrollbar-length="20">
+			<div class="col-xs-6 col-sm-3 col-md-2" ng-repeat="ban in listDesk | filter:filterDeskStatus"> 
+				<span class="list_ban_khach_repeat" data-target="#hienBaiHome" data-toggle="modal" ng-click="showDeskSelected(ban.DeskID)">
+					<p class="name_desk">{{::ban.Name}}</p>
+						<p ng-show="ban.Status" class="amount_desk"><b ng-bind="currencyVietNam(ban.Amount)"></b>
+						<font color="black"> {{languageView.CURRENCY}}</font></p>   
+						<img ng-show="ban.Status == true" class="ban_trong" src="img/banfull.png">
+						<img ng-show="ban.Status == false" class="ban_trong" src="img/bantrong.png">
+				</span> 
+			</div>
+		</perfect-scrollbar>
+	<div id="hienBaiHome" close-my-modal ng-class="classShowDeskModal" tabindex="-1" role="dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="back_back ion-ios-checkmark-outline" ng-click="calcSumAmountOnDesk(deskIsActive);closeModalDesk();"> </button> 
+				<span class="back_back1" ng-click="calcSumAmountOnDesk(deskIsActive);closeModalDesk();"> {{languageView.OK}}</span> 
+				<span class="modal-title">{{languageView.DESK}} {{deskIsActive + 1}}</span>  
+				<button ng-show="showButtonTopRight(deskIsActive)" type="button" ng-class="{true:'setting_on_read ion-ios-paper-outline', false:'setting_on_read ion-ios-compose-outline'}[choosingProducts]" ng-touchend="setReviewChooseMode()"><span ng-show ="choosingProducts" class="setting_on_read1" > {{languageView.CHOOSED}}</span><span ng-show ="reviewingProducts" class="setting_on_read1" > {{languageView.CHOOSE}}</span></button>
+				
+			</div>
+			<div ng-if="choosingProducts"> 
+				<div class="menu_search">
+					<button class="button_set_search" ng-touchend="setSearch('');">{{languageView.ALL}}</button> 
+					<button class="button_set_search" ng-touchend="setSearch(0);">Cà phê</button>
+					<button class="button_set_search" ng-touchend="setSearch(1);">Ca cao</button>
+					<button class="button_set_search" ng-touchend="setSearch(2);">Sữa chua</button>
+					<button class="button_set_search" ng-touchend="setSearch(3);">Hạt dưa</button>
+				</div>
+				<perfect-scrollbar class="scroller_sanpham" wheel-propagation="true" wheel-speed="15" min-scrollbar-length="20">
+					<div class="col-xs-6 col-sm-3 col-md-2" ng-repeat="sanPham in listProducts | filter:searchBy"> 
+						<span  class="list_ban_khach_repeat" >
+							<p class="name_product">{{::sanPham.Name}}</p>
+							<img class="image_product" src="{{sanPham.ImagePath}}">
+							<button class="button_them" ng-touchend="addProductOnDesk(deskIsActive,sanPham)">+ {{returnNumberOfProduct(sanPham, deskIsActive)}}</button>
+							<p class="price_product">{{languageView.PRICE}}: <b> {{::sanPham.Price}} </b></p>
+						</span> 
+					</div>
+				</perfect-scrollbar>  
+			</div>
+			<div ng-if="reviewingProducts"> 
+				<div class="menu_search">
+					<button class="button_set_search" ng-touchend="setSearch('');">{{languageView.ALL}}</button> 
+					<button class="button_set_search" ng-touchend="setSearch(0);">Cà phê</button>
+					<button class="button_set_search" ng-touchend="setSearch(1);">Ca cao</button>
+					<button class="button_set_search" ng-touchend="setSearch(2);">Sữa chua</button>
+					<button class="button_set_search" ng-touchend="setSearch(3);">Hạt dưa</button>
+				</div>
+				<perfect-scrollbar class="scroller_sanpham" wheel-propagation="true" wheel-speed="15" min-scrollbar-length="20">
+					<div class="col-xs-6 col-sm-3 col-md-2" ng-repeat="x in listProductsOnDesk[deskIsActive] | filter:searchBy"> 
+						<span class="list_ban_khach_repeat">
+							<p class="name_product">{{::x.Name}}</p>
+							<img class="image_product" src="{{x.ImagePath}}">
+							<button class="button_them xoa_sp" ng-touchend="reduceNumberOfProducts(deskIsActive,x)">-</button>
+							<p class="price_product">{{languageView.NUMBER}}: <b> {{x.numberOfProducts}} </b></p>
+						</span> 
+					</div>
+				</perfect-scrollbar> 
+			</div>
+			<div ng-if="chooseCompleted">  
+					<button class="button_datthemmon" ng-touchend="setAddOrReduce();" >{{languageView.EDIT}}</button>
+					<button class="button_thanhtoan" ng-click="paymentConfirmation(deskIsActive);" data-dismiss="modal">{{languageView.CHECKOUT}}</button> 
+				<div class="clear_float"> 
+				</div>
+				<perfect-scrollbar class="scroller_thanhtoan" wheel-propagation="true" wheel-speed="15" min-scrollbar-length="20">
+					<div ng-repeat="x in listProductsOnDesk[deskIsActive]"> 
+						<div class="font1">
+							 {{::x.Name}}: <b ng-bind="currencyVietNam(x.Price)"></b>{{languageView.CURRENCY}} x <b>{{::x.numberOfProducts}}</b> = <b ng-bind="currencyVietNam(x.numberOfProducts * x.Price)"> </b>{{languageView.CURRENCY}}
+						</div> 
+					</div>
+				</perfect-scrollbar>
+				<div class="tong_tien" ng-init="">
+					{{languageView.TOTAL}}: <b ng-bind="currencyVietNam(listDesk[deskIsActive].Amount)"></b>{{languageView.CURRENCY}}
+				</div>  
+			</div>
+		</div>
+	</div>
+	<div id="caiDat" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+			<button type="button" class="back_back ion-ios-checkmark-outline" ng-click="saveSetting();" data-dismiss="modal"></button>
+				<span class="modal-title">{{languageView.SETTING}}</span>
+				<button type="button" class="setting_on_read ion-ios-close-outline" data-dismiss="modal"></button>
+			</div> 
+			
+			<div ng-repeat="settingData in settingData">  
+				<perfect-scrollbar class="scroller_setting" wheel-propagation="true" wheel-speed="15" min-scrollbar-length="20">
+				<div class="settingdiv">
+					Refresh time: <input class="input_login" type="text" ng-model="settingData.refreshTime" > 
+				</div>
+				<div class="settingdiv">
+					LAN IP address: <input class="input_login" type="text" ng-model="settingData.lanIpAdress">
+				</div>
+				<div class="settingdiv">
+					Sound: <input class="input_login" type="checkbox" ng-model="settingData.sound">
+				</div>
+				<div class="settingdiv">
+					Vibration: <input class="input_login" type="checkbox" ng-model="settingData.vibration">
+				</div>
+				<div class="settingdiv">
+					Language: 
+					<select class="input_login" ng-model="settingData.language" ng-options="lang.languageId as lang.languageName for lang in listLanguage"></select>
+				</div>
+				</perfect-scrollbar> 
+			</div>
+			
+		</div>
+	</div> 
+	<div class="menu_header"> 
+		<div class="modal-header"> 
+			<button type="button" class="back_back ion-ios-search" ng-click="changeFilterDesk();"></button>
+			<span class="modal-title">{{languageView.SELECTDESK}}</span>
+			<button type="button" class="setting_on_read ion-ios-settings"  data-target="#caiDat" data-toggle="modal"  role="button"></button>
+		</div>     
+	</div>  
+</div> 
